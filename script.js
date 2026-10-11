@@ -16,44 +16,31 @@ if (cookieExists("time")) {
     document.getElementById("min").innerHTML = min;
     document.getElementById("sec").innerHTML = sec;
 } else {
-    //alert("You do not yet mave a recrded time, redirecting to stopwatch");
+    alert("You do not yet mave a recorded time, redirecting to stopwatch");
     //window.location.replace("stopwatch/");
-    const startTime = 20;
-    let t = startTime;
-    let min = Math.floor(t / 60);
-    let sec = t - (min * 60);
-    document.getElementById("min").innerHTML = min;
-    document.getElementById("sec").innerHTML = sec;
 }
 
 function update(){
-    let min = parseInt(document.getElementById("min"));
-    let sec = parseInt(document.getElementById("sec"));
+    let min = parseInt(document.getElementById("min").innerHTML, 10);
+    let sec = parseInt(document.getElementById("sec").innerHTML, 10);
 
-    if (sec !== 0) {
-        if (min !== 0) {
-            clearInterval(timerShedule);
-        } else {
-            min--;
-            sec = 59;
-            document.getElementById("min").innerHTML = min;
-            if (sec < 10){
-                document.getElementById("sec").innerHTML = "0" + sec;
-            } else {
-                document.getElementById("sec").innerHTML = sec;
-            }
-        }
+    if (min === 0 && sec === 0) {
+        clearInterval(timerSchedule);
+        document.getElementById("min").innerHTML = "0";
+        document.getElementById("sec").innerHTML = "00";
+        return;
+    }
+
+    if (sec === 0) {
+        min--;
+        sec = 59;
     } else {
         sec--;
-        document.getElementById("min").innerHTML = min;
-        if (sec < 10){
-            document.getElementById("sec").innerHTML = "0" + sec;
-        } else {
-            document.getElementById("sec").innerHTML = sec;
-        }
     }
+    document.getElementById("min").innerHTML = min;
+    document.getElementById("sec").innerHTML = String(sec).padStart(2, '0');
 }
 
-function start() {
-    const timerShedule = setInterval(update(), 1000);
+function start(){
+    let timerShedule = setInterval(update, 1000);
 }
