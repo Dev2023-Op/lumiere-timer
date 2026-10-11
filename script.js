@@ -17,7 +17,7 @@ if (cookieExists("time")) {
     document.getElementById("sec").innerHTML = sec;
 } else {
     alert("You do not yet mave a recorded time, redirecting to stopwatch");
-    //window.location.replace("stopwatch/");
+    window.location.replace("stopwatch/");
 }
 
 function update(){

@@ -42,6 +42,12 @@ nav {
     text-align: center;
   }
 
+  ul li #right{
+    float: right;
+    padding: 14px 16px;
+    text-align: center;
+  }
+
   ul li a {
     display: block;
     color: black;
