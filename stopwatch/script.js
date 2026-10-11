@@ -1,3 +1,5 @@
+let timerShedule;
+
 function update(){
     let min = parseInt(document.getElementById("min").innerHTML, 10);
     let sec = parseInt(document.getElementById("sec").innerHTML, 10);
