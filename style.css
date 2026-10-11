@@ -16,6 +16,14 @@ div {
     }
 }
 
+#btn {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+}
+
 nav {
   position: fixed;
   top: 0;
