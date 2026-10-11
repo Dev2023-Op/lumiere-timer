@@ -16,8 +16,8 @@ if (cookieExists("time")) {
     document.getElementById("min").innerHTML = min;
     document.getElementById("sec").innerHTML = sec;
 } else {
-    alert("You do not yet mave a recorded time, redirecting to stopwatch");
-    window.location.replace("stopwatch/");
+    //alert("You do not yet mave a recorded time, redirecting to stopwatch");
+    //window.location.replace("stopwatch/");
 }
 
 function update(){
@@ -25,6 +25,10 @@ function update(){
     let sec = parseInt(document.getElementById("sec").innerHTML, 10);
 
     if (min === 0 && sec === 0) {
+        let a = parseInt(document.getElementById("min").innerHTML, 10);
+        let b = parseInt(document.getElementById("sec").innerHTML, 10);
+        let total = (a * 60) + b;
+        document.cookie = "time=" + total + "; max-age=34560000;";
         clearInterval(timerSchedule);
         document.getElementById("min").innerHTML = "0";
         document.getElementById("sec").innerHTML = "00";
@@ -43,4 +47,12 @@ function update(){
 
 function start(){
     let timerShedule = setInterval(update, 1000);
+}
+
+function stop(){
+    clearInterval(timerShedule);
+    let min = parseInt(document.getElementById("min").innerHTML, 10);
+    let sec = parseInt(document.getElementById("sec").innerHTML, 10);
+    let total = (min * 60) + sec;
+    document.cookie = "time=" + total + "; max-age=34560000;";
 }

@@ -24,6 +24,17 @@ div {
     text-align: center;
 }
 
+footer button {
+    width: 50%;
+    float: left;
+    background-color: #a2a2a2;
+    color: black;
+    border: none;
+    padding-top: 2.5%;
+    padding-bottom: 2.5%;
+    font-size: larger;
+}
+
 nav {
   position: fixed;
   top: 0;
