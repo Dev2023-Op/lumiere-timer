@@ -1,4 +1,4 @@
-let timerShedule;
+globalThis.timerShedule;
 
 function update(){
     let min = parseInt(document.getElementById("min").innerHTML, 10);
@@ -15,7 +15,7 @@ function update(){
 }
 
 function start(){
-    let timerShedule = setInterval(update, 1000);
+    timerShedule = setInterval(update, 1000);
 }
 
 function stop(){
